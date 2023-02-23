@@ -5,6 +5,7 @@ import {CiUser} from "react-icons/ci"
 import {AiOutlineHeart} from "react-icons/ai"
 import {HiOutlineShoppingBag} from "react-icons/hi"
 import DropDown from './DropDown'
+import "./dropdown.css"
 
 const Navbar = () => {
   return (
@@ -25,10 +26,34 @@ const Navbar = () => {
           <Input type='tel' placeholder='Search for products, brands and more' fontSize={"14px"} variant = "none" border={"1px solid gainsboro"}/>
           </InputGroup>
         </Box>
-        <Flex gap={"30px"}>
-          <Box display={"flex"} flexDirection= "column" alignItems={"center"} justifyContent= "center" gap={"5px"}>
+        <Flex gap={"30px"} >
+          <Box display={"flex"} flexDirection= "column" alignItems={"center"} justifyContent= "center" gap={"5px"} id = "profile_dropdown"  backgroundColor = "white" mb={-8} pb = {8}>
             <CiUser/>
             <Text fontSize={"13px"} fontWeight= "semibold">Profile</Text>
+            <Box id='dropdown_content_profile'>
+              <Text fontWeight={"semibold"} mt = {4}>Welcome</Text>
+              <Text>To access account and manage or...</Text>
+              <button className='account_login'>LOGIN / SIGNUP</button>
+              <hr/>
+
+              <Box mt={4} mb = {4}>
+                  <Text>Orders</Text>
+                  <Text>Wishlist</Text>
+                  <Text>Gift Cards</Text>
+                  <Text>Contact Us</Text>
+                  <Text>Myntra Insiders</Text>
+              </Box>
+              <hr/>
+
+              <Box mt={4} mb = {4}>
+                  <Text>Myntra Credit</Text>
+                  <Text>Coupon</Text>
+                  <Text>Saved Cards</Text>
+                  <Text>Saved VPN</Text>
+                  <Text>Saved Addresses</Text>
+              </Box>
+
+            </Box>
           </Box>
 
           <Box display={"flex"} flexDirection= "column" alignItems={"center"} justifyContent= "center" gap={"5px"}>
