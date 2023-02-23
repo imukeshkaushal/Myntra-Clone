@@ -601,7 +601,7 @@ const DropDown = () => {
             </Box>
 
             <Box id='dropdown-last' pl={"15px"} pr = {"15px"}>
-            <Text fontWeight={"bold"} fontSize = "13px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>STUDIO</Text>
+            <Text fontWeight={"bold"} fontSize = "13px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}><Flex gap={1}>STUDIO <Text fontSize={"9px"} color={"red"}>NEW</Text></Flex></Text>
             <Box id='content-last'>
                 <Flex  direction={"column"} justifyContent={"center"} alignItems = "center" gap={"30px"}>
                 <Image src = "https://constant.myntassets.com/web/assets/img/studio-logo-new.svg" alt='studio'  mt = {8}/>

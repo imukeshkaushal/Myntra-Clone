@@ -1,16 +1,18 @@
-import { SearchIcon } from '@chakra-ui/icons'
+import {SearchIcon } from '@chakra-ui/icons'
 import { Box, Flex, Image, Input, InputGroup, InputLeftElement, Text } from '@chakra-ui/react'
 import React from 'react'
 import {CiUser} from "react-icons/ci"
 import {AiOutlineHeart} from "react-icons/ai"
 import {HiOutlineShoppingBag} from "react-icons/hi"
+
 import DropDown from './DropDown'
 import "./dropdown.css"
+import MobileNavbar from './MobileNavbar'
 
 const Navbar = () => {
   return (
-    <Box zIndex={99} backgroundColor = "white">
-      <Box boxShadow= "rgba(33, 35, 38, 0.1) 0px 10px 10px -10px" width={"100%"} display = "flex" alignItems={"center"} justifyContent = "space-between"  paddingRight={"50px"}>
+    <Box zIndex={99} backgroundColor = "white"  >
+      <Box id='desktop_nav' boxShadow= "rgba(33, 35, 38, 0.1) 0px 10px 10px -10px" display = "flex" alignItems={"center"} justifyContent = "space-between"  paddingRight={"50px"} >
         <Flex alignItems = "center" gap={"30px"} w = "55%">
           <Box>
             <Image w={"120px"} h= {"50px"} src='https://www.freepnglogos.com/uploads/logo-myntra-png/myntra-logo-m-png-3.png' alt='Logo'/>
@@ -62,12 +64,20 @@ const Navbar = () => {
           </Box>
 
           <Box display={"flex"} flexDirection= "column" alignItems={"center"} justifyContent= "center" gap={"5px"}>
-            <HiOutlineShoppingBag/>
+          <div class="cart">
+          <span class="count">0</span> 
+          <Box id='cart-icon'>
+          <HiOutlineShoppingBag/>
+          </Box> 
+          
+          </div>
             <Text fontSize={"13px"} fontWeight= "semibold">Bag</Text>
           </Box>
         </Flex>
-      </Box>
+      </Box> 
+      <MobileNavbar/>
     </Box>
+    
   )
 }
 
