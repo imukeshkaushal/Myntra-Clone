@@ -14,8 +14,8 @@ const Navbar = () => {
     <Box zIndex={99} backgroundColor = "white"  >
       <Box id='desktop_nav' boxShadow= "rgba(33, 35, 38, 0.1) 0px 10px 10px -10px" display = "flex" alignItems={"center"} justifyContent = "space-between"  paddingRight={"50px"} >
         <Flex alignItems = "center" gap={"30px"} w = "55%">
-          <Box>
-            <Image w={"120px"} h= {"50px"} src='https://www.freepnglogos.com/uploads/logo-myntra-png/myntra-logo-m-png-3.png' alt='Logo'/>
+          <Box ml={10}>
+            <Image w={"50px"} h= {"50px"} src='https://i.ibb.co/0YzdPxG/ab.png' alt='Logo'/>
           </Box>
           <DropDown/>
         </Flex>
