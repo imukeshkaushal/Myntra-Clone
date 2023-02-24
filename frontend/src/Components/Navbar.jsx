@@ -11,11 +11,11 @@ import MobileNavbar from './MobileNavbar'
 
 const Navbar = () => {
   return (
-    <Box zIndex={99} backgroundColor = "white"  >
+    <Box zIndex={99} backgroundColor = "white">
       <Box id='desktop_nav' boxShadow= "rgba(33, 35, 38, 0.1) 0px 10px 10px -10px" display = "flex" alignItems={"center"} justifyContent = "space-between"  paddingRight={"50px"} >
         <Flex alignItems = "center" gap={"30px"} w = "55%">
           <Box ml={10}>
-            <Image w={"50px"} h= {"50px"} src='https://i.ibb.co/0YzdPxG/ab.png' alt='Logo'/>
+            <Image w={"40px"} h= {"40px"} src='https://i.ibb.co/0YzdPxG/ab.png' alt='Logo'/>
           </Box>
           <DropDown/>
         </Flex>
@@ -29,7 +29,7 @@ const Navbar = () => {
           </InputGroup>
         </Box>
         <Flex gap={"30px"} >
-          <Box display={"flex"} flexDirection= "column" alignItems={"center"} justifyContent= "center" gap={"5px"} id = "profile_dropdown"  backgroundColor = "white" mb={-8} pb = {8}>
+          <Box display={"flex"} flexDirection= "column" alignItems={"center"} justifyContent= "center" gap={"5px"} id = "profile_dropdown"  backgroundColor = "white" mb={0} pb = {0}>
             <CiUser/>
             <Text fontSize={"13px"} fontWeight= "semibold">Profile</Text>
             <Box id='dropdown_content_profile'>
@@ -64,8 +64,8 @@ const Navbar = () => {
           </Box>
 
           <Box display={"flex"} flexDirection= "column" alignItems={"center"} justifyContent= "center" gap={"5px"}>
-          <div class="cart">
-          <span class="count">0</span> 
+          <div className="cart">
+          <span className="count">0</span> 
           <Box id='cart-icon'>
           <HiOutlineShoppingBag/>
           </Box> 
