@@ -21,7 +21,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { GoNote } from "react-icons/go";
 // import { useDispatch, useSelector } from "react-redux";
 // import { addToCart } from "../Redux/AppReducer/product/action";
-// import Navbar from "../Components/Navbar";
+import Navbar from "../../Components/Navbar";
 // import Footer from "../Components/Footer";
 import { Input } from "@chakra-ui/react";
 
@@ -63,12 +63,12 @@ const SingleProduct = () => {
 
   return (
     <div>
+      <Navbar />
       <VStack
         divider={<StackDivider borderColor="white" />}
         spacing={14}
         align="stretch"
       >
-        {/* <Navbar></Navbar> */}
         <Container padding="8" maxW="100%" bg="#FFFF">
           <SimpleGrid columns={{ base: 1, sm: 1, md: 2 }} spacing={"20px"}>
             <SimpleGrid
