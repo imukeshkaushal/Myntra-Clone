@@ -61,9 +61,9 @@ useEffect(()=>{
     const params={
         gender,
         category,
-        brand ,rating ,pLH,pHL  }
+        brand }
     setSearchParams(params)
-},[category,gender,brand,rating,pHL,pLH])
+},[category,gender,brand])
 
 // const gen = ["Men","Women"]
 
