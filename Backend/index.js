@@ -3,6 +3,7 @@ const cors=require("cors");
 const { connection } = require("./config/db");
 const { userRouter } = require("./Routes/User.Route");
 const { productRoute } = require("./Routes/Product.Route");
+const { cartRoute } = require("./Routes/Cart.Route");
 
 
 const app =express()
@@ -19,7 +20,7 @@ app.use("/users",userRouter)
 app.use("/products", productRoute)
 
 
-
+app.use("/carts", cartRoute)
 app.listen(7500,async ()=>{
     try {
         await connection;
