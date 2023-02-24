@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+
 import { getProduct } from '../../../Redux/products/Product.action';
+import "./ProductGallary.css";
+import { AiFillStar } from 'react-icons/ai';
 
 export default function ProductGallary() {
 const [searchParams] = useSearchParams()
-// const [pricehl,setPricehl] = useState("");
-// const [pricelh,setPricelh] = useState("");
+
 
     const dispatch= useDispatch();
     const product = useSelector((store)=>store.product);
@@ -19,9 +21,9 @@ const [searchParams] = useSearchParams()
                 gender:  searchParams.getAll("gender"),
                 category: searchParams.getAll("category"),
                 brand: searchParams.getAll("brand"),
-                rating: searchParams.getAll("rating")
-            //  pricehl,
-            //   pricelh,
+                rating: searchParams.getAll("rating"),
+                pLH: searchParams.getAll("pLH"),
+                pHL: searchParams.getAll("pHL")
               }
         }
         dispatch(getProduct(paramObj))
@@ -31,15 +33,18 @@ const [searchParams] = useSearchParams()
     <div>
        
         
-    <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)"}}>
+    <div className='pgallarymain'>
      {product.length>0 && product.map((el)=>{
-        return <div key={el._id}>
-         <img src={el.imageSrc} alt="" width="250px" />
-         <span>{el.rating}</span>
-         <span>{el.brand}</span>
-         <span>{el.description}</span>
-         <span>{el.price}</span>
-         </div>
+        return  <Link to={`/SingleProduct/${el._id}`}><div key={el._id}>
+         <img src={el.imageSrc} alt="" />
+         <div className='pgalbimg'>
+          <div className='pgrate'>
+         <span className='pgratetext'>{el.rating}</span>
+         <span><AiFillStar className='pgicon' /></span></div><br />
+         <h4 className='pgalbrand'>{el.brand}</h4>
+         <h4 className='pgldesc'>{el.description}</h4>
+         <span className='pgalprice'>Rs.{el.price}</span></div>
+         </div></Link>
      })}</div>
     </div>
   )

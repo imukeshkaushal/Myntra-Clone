@@ -18,7 +18,7 @@ productRoute.get("/", async (req, res) => {
   const category =req.query.category
   const brand=req.query.brand
   const price=req.query.price
-  const gender=req.query.gender
+  const gender=req.query.gender 
 
   // let { query } = req.query;
    if(category && gender && brand){
