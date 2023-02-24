@@ -173,4 +173,3 @@ useEffect(()=>{
 
 
 
-// mongoURL=mongodb+srv://charchit:charchit@cluster0.wkxql.mongodb.net/myntra?retryWrites=true&w=majority
