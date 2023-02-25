@@ -63,6 +63,7 @@ const SingleProduct = () => {
 
   return (
     <div>
+
       <VStack
         divider={<StackDivider borderColor="white" />}
         spacing={14}

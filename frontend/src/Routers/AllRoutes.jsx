@@ -5,6 +5,9 @@ import SingleProduct from "../Pages/SingleProudct/Singleproduct";
 import Checkout from "./../Pages/SingleProudct/CheckoutPage";
 import Home from '../Pages/Home'
 import CompleteProductPage from '../Pages/ProductPage/CompleteProductPage/CompleteProductPage'
+import Login from '../Pages/Login';
+import Register from '../Pages/Register';
+import PrivateRoute from '../Context/PrivateRoute';
 
 const AllRoutes = () => {
   return (
@@ -14,8 +17,11 @@ const AllRoutes = () => {
         <Route path="/cart" element={<Cart />} />;
         <Route path="/SingleProduct/:id" element={<SingleProduct />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path='/login' element = {<Login/>}></Route>
+        <Route path='/register' element = {<Register/>}></Route>
+
     </Routes>
-  )
+  );
 }
 
 

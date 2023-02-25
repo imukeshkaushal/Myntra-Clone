@@ -1,17 +1,13 @@
-
-import Cart from './Pages/SingleProudct/Cart';
-import SingleProduct from './Pages/SingleProudct/Singleproduct';
 import AllRoutes from './Routers/AllRoutes';
 import Navbar from "./Components/Navbar";
-import Home from "./Pages/Home";
-
-
-
+import { Box } from '@chakra-ui/react';
 function App() {
   return (
     <div>
       <Navbar/>
-      <AllRoutes/>
+      <Box mt={[16,16,16,16,16,24]}>
+        <AllRoutes/>
+      </Box>
     </div>
   );
 }
