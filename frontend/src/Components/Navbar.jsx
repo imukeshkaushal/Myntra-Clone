@@ -26,7 +26,7 @@ const Navbar = () => {
             pointerEvents='none'
             children={<SearchIcon color='gray.300' />}
           />
-          <Input type='tel' placeholder='Search for products, brands and more' fontSize={"14px"} variant = "none" border={"1px solid gainsboro"}/>
+          <Input type='text' placeholder='Search for products, brands and more' fontSize={"14px"} variant = "none" border={"1px solid gainsboro"}/>
           </InputGroup>
         </Box>
         <Flex gap={"30px"} >

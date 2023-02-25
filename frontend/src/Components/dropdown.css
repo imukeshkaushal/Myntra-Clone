@@ -1,11 +1,12 @@
 body{
     background-color: #FAFBFC;
 }
+
 #content{
     height: auto;
     margin: auto;
     position: absolute;
-    top : 82px;
+    top : 85px;
     left: 120px;
     width : auto;
     padding-left: 40px;
@@ -31,7 +32,7 @@ body{
     height: auto;
     margin: auto;
     position: absolute;
-    top : 82px;
+    top : 85px;
     left: 400px;
     width : 600px;
     padding-left: 40px;
