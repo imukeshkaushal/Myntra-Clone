@@ -1,0 +1,50 @@
+.pgallarymain{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-content: space-around;
+    gap: 25px;
+}
+.pgallarymain img{
+    width: 210px;
+    height: 280px;
+    position: relative;
+    z-index: -1;
+    
+}
+
+.pgalbrand{
+    font-weight: 700;
+}
+.pgalbimg{
+    margin-top: -33px;
+    margin-left: 10px;
+}
+.pgalprice{
+    font-weight: 600;
+    font-size: 14px;
+    
+}
+.pgrate{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.63);
+    z-index: 1;
+    width: 40px;
+    padding: 4px;
+    padding-left: 7px;
+    height: 20px;
+    border-radius: 3px;
+}
+.pgicon{
+    color: #72BFBC;
+}
+.pgratetext{
+font-size: 12px;
+font-weight: 700;
+}
+
+.pgldesc{
+    font-size: 14px;
+    color: gray;
+}

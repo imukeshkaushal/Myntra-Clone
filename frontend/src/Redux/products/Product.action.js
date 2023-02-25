@@ -22,7 +22,7 @@ const getProductFailureAction=()=>{
 
 export const getProduct =(paramObj)=> (dispatch)=>{
     dispatch(getProductRequestAction())
-      axios.get("http://localhost:3004/posts",paramObj)
+      axios.get("http://localhost:7500/products",paramObj)
       .then((res)=>dispatch(getProductSuccessAction(res.data)))
       .catch((err)=>dispatch(getProductFailureAction()))
 }
