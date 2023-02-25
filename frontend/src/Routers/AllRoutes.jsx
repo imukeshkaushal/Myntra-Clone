@@ -9,13 +9,13 @@ import CompleteProductPage from '../Pages/ProductPage/CompleteProductPage/Comple
 const AllRoutes = () => {
   return (
     <Routes>
-        <Route path='/' element = {<Home/>}></Route>
-        <Route path='/products' element={<CompleteProductPage/>} ></Route>
-        <Route path="/cart" element={<Cart />} />;
-        <Route path="/SingleProduct" element={<SingleProduct />} />
-        <Route path="/checkout" element={<Checkout />} />
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/products" element={<CompleteProductPage />}></Route>
+      <Route path="/cart" element={<Cart />}></Route>;
+      <Route path="/SingleProduct" element={<SingleProduct />}></Route>
+      <Route path="/checkout" element={<Checkout />}></Route>
     </Routes>
-  )
+  );
 }
 
 

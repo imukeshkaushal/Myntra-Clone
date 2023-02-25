@@ -54,41 +54,7 @@ const Cart = () => {
     <Box border="1px solid white" w="100%">
       {/* navbar */}
       <Flex w="100%" position="fixed" bg="white">
-        <Flex position="fixed" w="100%" padding="0.5rem" bg="white">
-          <HStack w="90%">
-            <Box justifyContent="left" w="20%">
-              <Image
-                w="3rem"
-                src="https://assets.myntassets.com/assets/images/2021/1/29/3fa39f6c-edfe-4733-9f64-56d9bdc448fe1611931505688-Myntra-Logo-01.jpg"
-              ></Image>
-            </Box>
-            <UnorderedList
-              padding="0.5rem"
-              w="60%"
-              display="flex"
-              listStyleType="none"
-              justifyContent="center"
-            >
-              <ListItem
-                mr="0rem"
-                fontSize="1.2rem"
-                fontWeight="500"
-                justifyContent="space-evenly"
-              >
-                Shopping Cart
-              </ListItem>
-              <ListItem>
-                <Flex>
-                  <Image
-                    src="https://www.iconpacks.net/icons/2/free-shopping-cart-icon-2029-thumb.png"
-                    maxW="2rem"
-                  ></Image>
-                  <span>{/* <Text as="b">{items}</Text> */}</span>
-                </Flex>
-              </ListItem>
-            </UnorderedList>
-          </HStack>
-        </Flex>
+        <Flex position="fixed" w="100%" padding="0.5rem" bg="white"></Flex>
       </Flex>
       <Spacer></Spacer>
       {/* cart page data */}

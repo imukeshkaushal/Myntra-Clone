@@ -4,6 +4,8 @@ function App() {
   return (
     <div>
       <Navbar/>
+      {/* <SingleProduct /> */}
+      {/* <Cart /> */}
       <AllRoutes/>
     </div>
   );

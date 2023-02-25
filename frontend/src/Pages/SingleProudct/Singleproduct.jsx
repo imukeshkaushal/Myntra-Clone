@@ -63,7 +63,7 @@ const SingleProduct = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <VStack
         divider={<StackDivider borderColor="white" />}
         spacing={14}
