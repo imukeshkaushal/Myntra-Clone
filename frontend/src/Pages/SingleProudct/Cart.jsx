@@ -13,53 +13,49 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Select,
-  Stack,
   Text,
   useDisclosure,
   VStack,
   Spacer,
-  Container,
   UnorderedList,
   ListItem,
   Input,
 } from "@chakra-ui/react";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 // import {
-//   getCartData,
-//   handleCouponDiscount,
-//   handleTotalAmount,
+// getCartData,
+// handleCouponDiscount,
+// handleTotalAmount,
 // } from "../Redux/AppReducer/Cart/action";
 // import SingleCartCard from "../Components/Cart/SingleCartCard";
-import Footer from "../Components/Footer";
 
 const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [data, setData] = useState("");
-  //   const dispatch = useDispatch();
-  //   const cart = useSelector((store) => store.cartReducer.cart);
-  //   const amount = useSelector((store) => store.cartReducer.totalCartAmount);
-  //   const items = useSelector((store) => store.cartReducer.totalItems);
-  //   const discount = useSelector((store) => store.cartReducer.discount);
+  // const dispatch = useDispatch();
+  // const cart = useSelector((store) => store.cartReducer.cart);
+  // const amount = useSelector((store) => store.cartReducer.totalCartAmount);
+  // const items = useSelector((store) => store.cartReducer.totalItems);
+  // const discount = useSelector((store) => store.cartReducer.discount);
 
-  //   useEffect(() => {
+  // useEffect(() => {
   //     dispatch(getCartData);
-  //   }, []);
+  // }, []);
 
-  //   const handleCouponCode = () => {
+  // const handleCouponCode = () => {
   //     // console.log(data);
   //     dispatch(handleCouponDiscount(data, amount));
-  //   };
+  // };
 
   return (
     <Box border="1px solid white" w="100%">
       {/* navbar */}
       <Flex w="100%" position="fixed" bg="white">
         <Flex position="fixed" w="100%" padding="0.5rem" bg="white">
-          <HStack w="100%">
+          <HStack w="90%">
             <Box justifyContent="left" w="20%">
               <Image
                 w="3rem"
@@ -97,7 +93,7 @@ const Cart = () => {
       <Spacer></Spacer>
       {/* cart page data */}
       <Box mt="5rem" h="auto" ml="10rem">
-        <Box backgroundColor="#F9F9FA" w="90%">
+        <Box w="90%">
           <HStack spacing="24px" w="100%">
             <Flex w="70%" h="auto">
               <Flex
@@ -151,7 +147,7 @@ const Cart = () => {
                               lineHeight="1rem"
                               color="rgb(35, 21, 53)"
                             >
-                              ( 1 Point = 1 rupee ) <a>Know More</a>
+                              {/* ( 1 Point = 1 rupee ) <a>Know More</a> */}{" "}
                             </Text>
                           </CardBody>
                         </Card>
@@ -167,7 +163,7 @@ const Cart = () => {
                       fontFamily="MuliSemiBold,Helvetica, Arial, sans-serif"
                       fontSize="1.1rem"
                     >
-                      {/* Total Items ({items}) : ₹{amount} */}
+                      {/* Total Items ({items}) : ₹{amount} */}{" "}
                     </Text>
                     <Text
                       w="25%"
@@ -180,28 +176,24 @@ const Cart = () => {
                     </Text>
                   </Flex>
                   <VStack>
+                    {" "}
                     {/* {cart?.map((el) => (
                         <SingleCartCard key={el.id} product={el} />
-                      ))} */}
+                      ))} */}{" "}
                   </VStack>
-                  {/*  */}
+                  {/*  */}{" "}
                 </VStack>
               </Flex>
             </Flex>
             <Flex w="30%" h="auto">
               <VStack w="100%">
-                <Box
-                  w="100%"
-                  borderRadius="0.2rem"
-                  bg="rgb(246, 239, 246)"
-                  border="rgb(233, 233, 233)"
-                >
+                <Box w="100%">
                   <Button
                     onClick={onOpen}
-                    borderColor="blue"
+                    borderColor="#E39D67"
                     w="100%"
                     h="auto"
-                    bg="teal.200"
+                    bg="#E93D67"
                     borderRadius="0.5rem"
                     padding="0.5rem"
                   >
@@ -209,68 +201,101 @@ const Cart = () => {
                   </Button>
                 </Box>
                 <Box
-                  border="1px solid"
+                  mt="1000px"
                   borderColor="#D9E1EA"
                   w="100%"
                   h="auto"
                   bg="white"
-                  borderRadius="0.2rem"
                 >
-                  <HStack w="100%">
+                  <HStack w="100%" mt="10px">
                     <Image
                       padding="0.2rem"
                       src="https://png.pngtree.com/png-clipart/20191123/original/pngtree-outline-truck-delivery-icon-png-image_5196485.jpg"
                       maxW="10%"
                     ></Image>
                     <Text padding="0.2rem">
-                      Deliver to <Text as="b">421101</Text>
+                      Deliver to
+                      <Text as="b">421101</Text>
                     </Text>
                     <Spacer></Spacer>
                     <Text padding="0.2rem">Change</Text>
                   </HStack>
                 </Box>
-                <Box w="100%">
+                <Box w="100%" mt="10px">
                   <Text textAlign="left">Order Summary:</Text>
                 </Box>
                 <Box w="100%" h="auto" bg="white" borderRadius="0.2rem">
                   <HStack w="100%">
-                    <Text textAlign="left" fontWeight={"light"} fontSize="14px">
-                      Subtotal
+                    <Text
+                      mt="10px"
+                      textAlign="left"
+                      fontWeight={"normal"}
+                      fontSize="16px"
+                      lineHeight="20px"
+                    >
+                      Total MRP
                     </Text>
                     <Spacer></Spacer>
                     <Text padding="0.2rem" textAlign="right">
-                      {/* ₹{amount} */}
-                    </Text>
-                  </HStack>
-                  <HStack w="100%">
-                    <Text padding="0.2rem" textAlign="left">
-                      You Saved
-                    </Text>
-                    <Spacer></Spacer>
-                    <Text padding="0.2rem" textAlign="right">
-                      {/* ₹{discount} */}
-                    </Text>
-                  </HStack>
-                  <HStack w="100%">
-                    <Text padding="0.2rem" textAlign="left">
-                      Coupon Discount
-                    </Text>
-                    <Spacer></Spacer>
-                    <Text padding="0.2rem" textAlign="right">
-                      {/* ₹{discount} */}
-                    </Text>
-                  </HStack>
-                  <HStack w="100%">
-                    <Text padding="0.2rem" textAlign="left">
-                      Delivery Charges (Standard)
-                    </Text>
-                    <Spacer></Spacer>
-                    <Text padding="0.2rem" textAlign="right">
-                      ₹0
+                      {/* ₹{amount} */}{" "}
                     </Text>
                   </HStack>
                   <HStack w="100%">
                     <Text
+                      mt="10px"
+                      textAlign="left"
+                      fontWeight={"normal"}
+                      fontSize="16px"
+                      lineHeight="20px"
+                    >
+                      Discount on MRP
+                    </Text>
+                    <Spacer></Spacer>
+                    <Text padding="0.2rem" textAlign="right">
+                      {/* ₹{discount} */}{" "}
+                    </Text>
+                  </HStack>
+                  <HStack w="100%">
+                    <Text
+                      mt="10px"
+                      textAlign="left"
+                      fontWeight={"normal"}
+                      fontSize="16px"
+                      lineHeight="20px"
+                    >
+                      Coupon Discount
+                    </Text>
+                    <Spacer></Spacer>
+                    <Text padding="0.2rem" textAlign="right">
+                      {/* ₹{discount} */}{" "}
+                    </Text>
+                  </HStack>
+                  <HStack w="100%">
+                    <Text
+                      mt="10px"
+                      textAlign="left"
+                      fontWeight={"normal"}
+                      fontSize="16px"
+                      lineHeight="20px"
+                    >
+                      Convenience Fee
+                    </Text>
+                    <Spacer></Spacer>
+                    <Text
+                      mt="10px"
+                      padding="0.2rem"
+                      textAlign="left"
+                      fontWeight={"normal"}
+                      fontSize="16px"
+                      lineHeight="20px"
+                      color="#03A685"
+                    >
+                      FREE
+                    </Text>
+                  </HStack>
+                  <HStack w="100%">
+                    <Text
+                      mt="10px"
                       padding="0.2rem"
                       fontSize="1.2rem"
                       textAlign="left"
@@ -285,23 +310,22 @@ const Cart = () => {
                       textAlign="right"
                       as="b"
                     >
-                      {/* ₹{amount - discount} */}
+                      {/* ₹{amount - discount} */}{" "}
                     </Text>
                   </HStack>
                 </Box>
                 <Link to="/checkout">
                   <Button
                     color="white"
-                    variant="solid"
-                    w="100%"
+                    variant="outline"
+                    w="320px"
                     padding="0.5rem"
                     border="none"
-                    bg="linear-gradient(to right, rgb(222, 87, 229), rgb(136, 99, 251))"
+                    bg="#E93D67"
                     borderRadius="0.3rem"
-                    fontFamily="MuliSemiBold, Helvetica Neue, Helvetica, Arial, sans-serif"
                     fontSize="1.2rem"
                   >
-                    Checkout Securely
+                    Place Order
                   </Button>
                 </Link>
               </VStack>
@@ -309,6 +333,7 @@ const Cart = () => {
           </HStack>
         </Box>
         <Box>
+          {" "}
           {/* {discount === 0 ? ( */}
           <Modal onClose={onClose} isOpen={isOpen} isCentered>
             <ModalOverlay />
@@ -321,19 +346,18 @@ const Cart = () => {
                   value={data}
                   onChange={(e) => setData(e.target.value)}
                 ></Input>
-                {/* <Button onClick={handleCouponCode}>Apply</Button> */}
+                {/* <Button onClick={handleCouponCode}>Apply</Button> */}{" "}
               </ModalBody>
               <ModalFooter>
                 <Button onClick={onClose}>Close</Button>
               </ModalFooter>
             </ModalContent>
           </Modal>
-          {/* ) : ( "" )} */}
+          {/* ) : ( "" )} */}{" "}
         </Box>
       </Box>
       <br></br>
-
-      <Footer></Footer>
+      {/* <Footer></Footer> */}{" "}
     </Box>
   );
 };

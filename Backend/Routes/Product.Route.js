@@ -21,7 +21,6 @@ productRoute.get("/", async (req, res) => {
   const gender=req.query.gender
   const high=req.query.pHL
   const low=req.query.pLH
- 
    if(category && gender && brand){
     try {
         let productData =await ProductModel.find({$and:[{category: { $regex: `${category}`, $options: "i" }},{gender:gender},{brand: { $regex: `${brand}`, $options: "i" },}]}).sort({brand:1})

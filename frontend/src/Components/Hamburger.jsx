@@ -1,6 +1,18 @@
 
 import { ChevronRightIcon } from "@chakra-ui/icons"
-import { Badge, Box, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay,Flex,Image,Text,useDisclosure} from "@chakra-ui/react"
+import {
+  Badge,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Flex,
+  Image,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import React from "react"
 import { GiHamburgerMenu, } from "react-icons/gi"
 

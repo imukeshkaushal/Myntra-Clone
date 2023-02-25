@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom';
-
+import "./SideBar.css"
 export default function SideBar() {
  const [searchParams,setSearchParams]= useSearchParams();
  const initialState1 = searchParams.getAll("gender");
@@ -16,12 +16,30 @@ const [brand,setBrand]=useState(initialState3 || []);
 
 const handleCheck1=(e)=>{
    const newgender = [...gender]
-    if(newgender.includes(e.target.value)){
-         newgender.splice(newgender.indexOf(e.target.value),1)
-    }
-    else{
+if(e.target.value=="Men"){
+    if(newgender.length==1){
+        newgender.pop();
+        newgender.push(e.target.value)
+    }else{
         newgender.push(e.target.value)
     }
+ }
+ else{
+    if(newgender.length==1){
+        newgender.pop();
+        newgender.push(e.target.value)
+    }else{
+        newgender.push(e.target.value)
+    }
+    
+ }
+
+    // if(newgender.includes(e.target.value)){
+    //      newgender.splice(newgender.indexOf(e.target.value),1)
+    // }
+    // else{
+    //     newgender.push(e.target.value)
+    // }
     setGender(newgender)
 }
 
@@ -52,6 +70,7 @@ const handleCheck2=(e)=>{
 
 
 
+ 
 
 
 
@@ -61,36 +80,30 @@ useEffect(()=>{
     const params={
         gender,
         category,
-        brand ,rating ,pLH,pHL  }
+        brand}
     setSearchParams(params)
-},[category,gender,brand,rating,pHL,pLH])
+},[category,gender,brand])
 
 // const gen = ["Men","Women"]
 
   return (
-    <div>
-       {/* <button onClick={hanldeButton}>Rating</button> */}
-
-       
-
+    <div className='sidemain'>
+<div className='check1'>
+      
         <div>
-<input type="checkbox"  value="Men" onChange={handleCheck1}  checked={gender.includes("Men")}/>
+<input type="radio" name='Gender'  value="Men" onChange={handleCheck1}  checked={gender.includes("Men")}/>
     <label htmlFor="">Men</label></div>
 
     <div>
-<input type="checkbox" value="Women" onChange={handleCheck1}   checked={gender.includes("Women")}/>
+<input type="radio" name='Gender' value="Women" onChange={handleCheck1}   checked={gender.includes("Women")}/>
     <label htmlFor="">Women</label></div>
+ </div>
 
-    {/* {gen.length>0 && gen.map((el)=>{
-        return <div key={el}>
-        <input type="checkbox"  value={el} onChange={handleCheck1}  checked={gender.includes({el})}/>
-    <label htmlFor="">{el}</label>
-        </div>
-    })} */}
-
+<div className='check2'>
+<h1 className='sidehead'>CATEGORIES</h1>
 
     <div>
-<input type="checkbox"  value="Shirts" onChange={handleCheck2}  checked={category.includes("Shirts")}/>
+<input type="checkbox"  value="Shirts" onChange={handleCheck2}   checked={category.includes("Shirts")}/>
     <label htmlFor="">Shirts</label></div>
 
     <div>
@@ -100,10 +113,11 @@ useEffect(()=>{
     <div>
 <input type="checkbox" value="Shoes" onChange={handleCheck2}  checked={category.includes("Shoes")} />
     <label htmlFor="">Shoes</label></div>
+    </div>
 
 
 
-
+    <h1 className='sidehead' >BRAND</h1>
 
     
     <div>
@@ -131,12 +145,6 @@ useEffect(()=>{
     <div>
 <input type="checkbox" value="Hancock" onChange={handleCheck3}  checked={brand.includes("Hancock")} />
     <label htmlFor="">Hancock</label></div>
-
-    <div>
-<input type="checkbox" value="Louis Philippe" onChange={handleCheck3}  checked={brand.includes("Louis Philippe")} />
-    <label htmlFor="">Louis Philippe</label></div>
-
-
 
 
     <div>
@@ -173,4 +181,3 @@ useEffect(()=>{
 
 
 
-// mongoURL=mongodb+srv://charchit:charchit@cluster0.wkxql.mongodb.net/myntra?retryWrites=true&w=majority

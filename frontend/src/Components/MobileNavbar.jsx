@@ -20,8 +20,8 @@ const MobileNavbar = () => {
         <BsFilePlus size={"20px"}/>
         <SearchIcon boxSize={"20px"}/>
         <BsHeart size={"20px"}/>
-        <div class="cart">
-          <span class="count">0</span> 
+        <div className="cart">
+          <span className="count">0</span> 
           <Box id='cart-icon'>
           <HiOutlineShoppingBag size={"20px"}/>
           </Box> 
