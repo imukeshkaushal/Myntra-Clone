@@ -15,10 +15,11 @@ const AllRoutes = () => {
         <Route path='/' element = {<Home/>}></Route>
         <Route path='/products' element={<CompleteProductPage/>} ></Route>
         <Route path="/cart" element={<Cart />} />;
-        <Route path="/SingleProduct" element={<SingleProduct />} />
-        <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} /> 
+        <Route path="/SingleProduct/:id" element={<SingleProduct />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path='/login' element = {<Login/>}></Route>
         <Route path='/register' element = {<Register/>}></Route>
+
     </Routes>
   );
 }
