@@ -9,7 +9,7 @@ const DropDown = () => {
            
 
             <Box id='dropdown' pl={"15px"} pr = {"15px"}>
-            <Text fontWeight={"bold"} fontSize = "13px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>MEN</Text>
+            <Text fontWeight={"semibold"} fontSize = "15px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>MEN</Text>
             <Box id='content'>
                 <Flex gap={"90px"}>
                     <Box>
@@ -129,7 +129,7 @@ const DropDown = () => {
             </Box>
             
             <Box id='dropdown' pl={"15px"} pr = {"15px"}>
-            <Text fontWeight={"bold"} fontSize = "13px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>WOMEN</Text>
+            <Text fontWeight={"semibold"} fontSize = "15px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>WOMEN</Text>
             <Box id='content'>
                 <Flex gap={"90px"}>
                     <Box>
@@ -248,7 +248,7 @@ const DropDown = () => {
             </Box>
 
             <Box id='dropdown' pl={"15px"} pr = {"15px"}>
-            <Text fontWeight={"bold"} fontSize = "13px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>KIDS</Text>
+            <Text fontWeight={"semibold"} fontSize = "15px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>KIDS</Text>
             <Box id='content'>
                 <Flex gap={"90px"}>
                     <Box>
@@ -367,7 +367,7 @@ const DropDown = () => {
             </Box>
 
             <Box id='dropdown' pl={"15px"} pr = {"15px"}>
-            <Text fontWeight={"bold"} fontSize = "13px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>HOME & LIVING</Text>
+            <Text fontWeight={"semibold"} fontSize = "15px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>HOME & LIVING</Text>
             <Box id='content'>
                 <Flex gap={"90px"}>
                     <Box>
@@ -491,7 +491,7 @@ const DropDown = () => {
             </Box>
 
             <Box id='dropdown' pl={"15px"} pr = {"15px"}>
-            <Text fontWeight={"bold"} fontSize = "13px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>BEAUTY</Text>
+            <Text fontWeight={"semibold"} fontSize = "15px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>BEAUTY</Text>
             <Box id='content'>
                 <Flex gap={"90px"}>
                     <Box>
@@ -601,7 +601,7 @@ const DropDown = () => {
             </Box>
 
             <Box id='dropdown-last' pl={"15px"} pr = {"15px"}>
-            <Text fontWeight={"bold"} fontSize = "13px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}><Flex gap={1}>STUDIO <Text fontSize={"9px"} color={"red"}>NEW</Text></Flex></Text>
+            <Text fontWeight={"semibold"} fontSize = "15px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}><Flex gap={1}>STUDIO <Text fontSize={"9px"} color={"red"}>NEW</Text></Flex></Text>
             <Box id='content-last'>
                 <Flex  direction={"column"} justifyContent={"center"} alignItems = "center" gap={"30px"}>
                 <Image src = "https://constant.myntassets.com/web/assets/img/studio-logo-new.svg" alt='studio'  mt = {8}/>
