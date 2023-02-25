@@ -8,7 +8,6 @@ function App() {
       <Box mt={[16,16,16,16,16,24]}>
         <AllRoutes/>
       </Box>
-      
     </div>
   );
 }
