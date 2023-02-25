@@ -18,12 +18,12 @@ productRoute.get("/", async (req, res) => {
   const category =req.query.category
   const brand=req.query.brand
   const price=req.query.price
-  const gender=req.query.gender 
-
-  // let { query } = req.query;
+  const gender=req.query.gender
+  const high=req.query.pHL
+  const low=req.query.pLH
    if(category && gender && brand){
     try {
-        let productData =await ProductModel.find({$and:[{category: { $regex: `${category}`, $options: "i" }},{gender:gender},{brand: { $regex: `${brand}`, $options: "i" },}]})
+        let productData =await ProductModel.find({$and:[{category: { $regex: `${category}`, $options: "i" }},{gender:gender},{brand: { $regex: `${brand}`, $options: "i" },}]}).sort({brand:1})
         res.send(productData)
     } catch (err) {
         console.log(err)
@@ -39,7 +39,15 @@ productRoute.get("/", async (req, res) => {
     } catch (err) {
       res.status(500).send({ message: err.message });
     }
-  } else if(max && min && brand){
+  } else if (gender) {
+    try {
+      const productData = await ProductModel.find({gender:gender});
+      res.send(productData);
+    } catch (err) {
+      res.status(500).send({ message: err.message });
+    }
+  }
+   else if(max && min && brand){
     try {
         let productData =await ProductModel.find({$and:[{price:{$gt:min}},{price:{$lt:max}},{brand: { $regex: `${brand}`, $options: "i" },}]})
         res.send(productData)
@@ -57,11 +65,32 @@ productRoute.get("/", async (req, res) => {
     } catch (error) {
       res.status(500).send({ message: err.message });
     }
-  } else if(price){
+  } else if(high){
+    try {
+      
+        let productData =await ProductModel.find().sort({price:high})
+        res.send(productData) 
+        
+    } catch (err) {
+        console.log(err)
+        res.status(500).send({message:err.message})
+    }
+} else if(low){
+  try {
+    
+      let productData =await ProductModel.find().sort({price:low})
+      res.send(productData) 
+     
+  } catch (err) {
+      console.log(err)
+      res.status(500).send({message:err.message})
+  }
+}
+   else if(price){
     try {
       const productData = await ProductModel.find({price:{$lt:price}});
       res.send(productData);
-    } catch (error) {
+    } catch (err) {
       res.status(500).send({ message: err.message });
     }
   } else if(max && min){
@@ -81,8 +110,6 @@ productRoute.get("/", async (req, res) => {
 
 productRoute.post("/create", async (req, res) => {
   try {
-    //  const movie = new ProductModel(req.body)
-    //  await movie.save()
     await ProductModel.insertMany(req.body);
     res.status(201).send({ msg: "Product has been added" });
   } catch (err) {
