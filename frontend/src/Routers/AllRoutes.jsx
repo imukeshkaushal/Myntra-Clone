@@ -8,6 +8,7 @@ import CompleteProductPage from '../Pages/ProductPage/CompleteProductPage/Comple
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import PrivateRoute from '../Context/PrivateRoute';
+import Wishlist from '../Pages/Wishlist/Wishlist';
 
 
 const AllRoutes = () => {
@@ -19,7 +20,9 @@ const AllRoutes = () => {
         <Route path="/SingleProduct/:id" element={<PrivateRoute><SingleProduct /></PrivateRoute>} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path='/login' element = {<Login/>}></Route>
+        <Route path='/wishlist' element = {<Wishlist/>}></Route>
         <Route path='/register' element = {<Register/>}></Route>
+        <Route path='*' element = {<h1 style={{textAlign:"center",fontSize:"30px",fontWeight:"900"}} >404 Not Found</h1>}></Route>
     </Routes>
   );
 }

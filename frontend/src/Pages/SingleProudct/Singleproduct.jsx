@@ -23,6 +23,17 @@ const SingleProduct = () => {
     axios.get(`https://calm-cyan-octopus-wear.cyclic.app/products/${id}`).then(res => setProduct(res.data[0]));
   };
 
+  const sendtoWishlist= (id)=>{
+    fetch("https://calm-cyan-octopus-wear.cyclic.app/wishlist/add", {
+      method: "POST",
+      body: JSON.stringify({_id:id}),
+      headers: {
+        "Content-type": "application/json",
+        Authorization: localStorage.getItem("token")
+      }
+    })
+  }
+
   useEffect(() => {
     getProduct();
   }, []);
@@ -246,8 +257,9 @@ const SingleProduct = () => {
                       </Link>
                     </Box>
                     <Box>
+                   
                       <Button fontSize={{ sm: "15px", md: "1rem" }} h={"55px"} w="50%" size={"lg"} border="1px   " bg={"#fff"}>
-                        <Icon mr={{ sm: "5px", md: "10px" }} fontSize={{ sm: "20px", md: "23px" }}>
+                        <Icon mr={{ sm: "5px", md: "10px" }} fontSize={{ sm: "20px", md: "23px" }} onClick={sendtoWishlist(id)} >
                           <AiOutlineHeart />
                         </Icon>
                         WISHLIST
