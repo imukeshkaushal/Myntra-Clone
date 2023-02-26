@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Cart from "../Pages/SingleProudct/Cart";
 import SingleProduct from "../Pages/SingleProudct/Singleproduct";
 import Checkout from "./../Pages/SingleProudct/CheckoutPage";
@@ -10,17 +10,26 @@ import Register from '../Pages/Register';
 import PrivateRoute from '../Context/PrivateRoute';
 
 const AllRoutes = () => {
-  return (
-    <Routes>
-        <Route path='/' element = {<Home/>}></Route>
-        <Route path='/products' element={<CompleteProductPage/>} ></Route>
-        <Route path="/cart" element={<Cart />} />;
-        <Route path="/SingleProduct" element={<SingleProduct />} />
-        <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} /> 
-        <Route path='/login' element = {<Login/>}></Route>
-        <Route path='/register' element = {<Register/>}></Route>
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path="/"
+                element={<Home/>}></Route>
+            <Route path="/products"
+                element={<CompleteProductPage/>}></Route>
+            <Route path="/cart"
+                element={<Cart/>}/>;
+            <Route path="/SingleProduct/:id"
+                element={<SingleProduct/>}/>
+            <Route path="/checkout"
+                element={
+                    <PrivateRoute><Checkout/></PrivateRoute>
+                }/>
+            <Route path="/login"
+                element={<Login/>}></Route>
+            <Route path="/register"
+                element={<Register/>}></Route>
+        </Routes>
+    );
 }
 
 
