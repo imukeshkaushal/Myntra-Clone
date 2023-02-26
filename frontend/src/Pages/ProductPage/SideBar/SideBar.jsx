@@ -116,7 +116,7 @@ useEffect(()=>{
     </div>
 
 
-
+<div className='check3'>
     <h1 className='sidehead' >BRAND</h1>
 
     {(category.includes("Shoes"))?
@@ -169,7 +169,7 @@ useEffect(()=>{
     <label htmlFor="">Levis Jeans</label></div></div>:"" }
 
 
-
+    </div>
 
 
 

@@ -39,6 +39,8 @@ const Login = () => {
     .then((res) => {
       if(res.token){
         loginUser(res.token);
+        localStorage.setItem("token",res.token);
+        
         localStorage.setItem("name",res.user[0].first_name,)
         console.log(res.token)
           navigate(`/`)
