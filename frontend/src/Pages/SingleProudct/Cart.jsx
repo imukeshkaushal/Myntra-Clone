@@ -46,7 +46,7 @@ const Cart = () => {
   };
 
   const Total = () => {
-    let sum = data ? data.reduce((sum, el) => (sum = el.productId.price * el.qty + sum), 0) : " ";
+    let sum = data ? data.reduce((sum, el) => (sum = el.productId.price * el.qty + sum), 0) : "";
     return sum;
   };
   const PlusQuant = _id => {

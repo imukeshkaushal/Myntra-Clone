@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import {
   Box,
   Button,
-  Flex,
+
   FormControl,
   FormLabel,
   Input,
@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import "../Components/dropdown.css";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import { AuthContext } from "../Context/AuthContext";
 import { useLocation } from "react-router-dom";
 
@@ -19,7 +19,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { loginUser} = useContext(AuthContext);
   const navigate = useNavigate();
-  const { state } = useLocation();
+  const location = useLocation()
+  console.log(location)
   const handleSubmit = () => {
     const payload = {
       email,
@@ -40,12 +41,7 @@ const Login = () => {
         loginUser(res.token);
         localStorage.setItem("name",res.user[0].first_name,)
         console.log(res.token)
-        if (state.from) {
-          navigate(state.from, { replace: true });
-        } else {
-          navigate("/");
-        }
-        
+          navigate(`/`)
       }
     })
     .catch((error) => {

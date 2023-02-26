@@ -8,7 +8,7 @@ import {
   InputLeftElement,
   Text,
 } from "@chakra-ui/react";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CiUser } from "react-icons/ci";
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineShoppingBag } from "react-icons/hi";
@@ -17,11 +17,40 @@ import DropDown from "./DropDown";
 import "./dropdown.css";
 import MobileNavbar from "./MobileNavbar";
 import { AuthContext } from "../Context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Navbar = () => {
   const { authState, logoutUser } = useContext(AuthContext);
-  let name = localStorage.getItem("name");
+  const [updated, setUpdated] = useState("");
+  const [data,setData] = useState("");
+  const [message, setMessage] = useState('');
+  const navigate = useNavigate()
+  let name = localStorage.getItem("name") || "";
+  const handleChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      setUpdated(message);
+      navigate(`/products?category=${message}`)
+    }
+  };
+  
+  const getProduct = () => {
+    axios
+      .get(`https://calm-cyan-octopus-wear.cyclic.app/carts`, {
+        headers: {
+          Authorization: localStorage.getItem("token")
+        }
+      })
+      .then(res => setData(res.data));
+  };
+
+  useEffect(() => {
+    getProduct();
+  },[])
   return (
     <Box
       backgroundColor="white"
@@ -42,12 +71,14 @@ const Navbar = () => {
       >
         <Flex alignItems="center" gap={"30px"} w="55%">
           <Box ml={10}>
+          <Link to="/">
             <Image
               w={"70px"}
               h={"70px"}
               src="https://i.ibb.co/9cYY9dd/sss.png"
               alt="Logo"
             />
+            </Link>
           </Box>
           <DropDown />
         </Flex>
@@ -63,8 +94,14 @@ const Navbar = () => {
               fontSize={"14px"}
               variant="none"
               border={"1px solid gainsboro"}
+              id="message"
+              name="message"
+              value={message}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
             />
           </InputGroup>
+          
         </Box>
         <Flex gap={"30px"}>
           <Box
@@ -78,6 +115,7 @@ const Navbar = () => {
             mb={0}
             pb={0}
           >
+            
             <CiUser size={"25px"} />
             <Text fontSize={"13px"} fontWeight="semibold">
               Profile
@@ -131,7 +169,7 @@ const Navbar = () => {
               Wishlist
             </Text>
           </Box>
-
+        <Link to="/cart">
           <Box
             display={"flex"}
             flexDirection="column"
@@ -140,18 +178,21 @@ const Navbar = () => {
             gap={"5px"}
           >
             <div className="cart">
-              <span className="count">0</span>
+              <span className="count">{data.length}</span>
               <Box id="cart-icon">
                 <HiOutlineShoppingBag size={"25px"} />
               </Box>
             </div>
+            
             <Text fontSize={"13px"} fontWeight="semibold">
               Bag
             </Text>
+            
           </Box>
+          </Link>
         </Flex>
       </Box>
-      <MobileNavbar />
+      <MobileNavbar count = {data.length} />
     </Box>
   );
 };
