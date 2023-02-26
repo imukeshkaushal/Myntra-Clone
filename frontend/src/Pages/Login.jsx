@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import {
   Box,
   Button,
-  Flex,
+
   FormControl,
   FormLabel,
   Input,
@@ -10,15 +10,17 @@ import {
 } from "@chakra-ui/react";
 import "../Components/dropdown.css";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import { AuthContext } from "../Context/AuthContext";
+import { useLocation } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { loginUser, authState } = useContext(AuthContext);
+  const { loginUser} = useContext(AuthContext);
   const navigate = useNavigate();
-
+  const location = useLocation()
+  console.log(location)
   const handleSubmit = () => {
     const payload = {
       email,
@@ -26,7 +28,7 @@ const Login = () => {
     };
     console.log(payload);
 
-    fetch("https://calm-cyan-octopus-wear.cyclic.app//users/login", {
+    fetch("https://calm-cyan-octopus-wear.cyclic.app/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,9 +40,10 @@ const Login = () => {
       if(res.token){
         loginUser(res.token);
         localStorage.setItem("token",res.token);
-        console.log(res.user[0])
         
-        navigate("/")
+        localStorage.setItem("name",res.user[0].first_name,)
+        console.log(res.token)
+          navigate(`/`)
       }
     })
     .catch((error) => {

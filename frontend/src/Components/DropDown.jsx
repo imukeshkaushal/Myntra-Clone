@@ -1,4 +1,5 @@
 import { Box,  Flex,Image, Text } from '@chakra-ui/react'
+import {Link} from "react-router-dom"
 import React from 'react'
 import "./dropdown.css"
 
@@ -9,7 +10,7 @@ const DropDown = () => {
            
 
             <Box id='dropdown' pl={"15px"} pr = {"15px"}>
-            <Text fontWeight={"semibold"} fontSize = "15px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>MEN</Text>
+          <Link to="/products?gender=Men"> <Text fontWeight={"semibold"} fontSize = "15px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>MEN</Text></Link> 
             <Box id='content'>
                 <Flex gap={"90px"}>
                     <Box>
@@ -17,7 +18,7 @@ const DropDown = () => {
                         <Flex direction={"column"} gap = "2px">
                             <Text mt={2}>T-Shirts</Text>
                             <Text>Casual Shirts</Text>
-                            <Text>Formal Shirt</Text>
+                           <Link to="/products?gender=Men&category=Shirts"><Text fontWeight={"semibold"} fontSize = "15px">Formal Shirt</Text></Link> 
                             <Text>Sweatshirts</Text>
                             <Text>Sweaters</Text>
                             <Text>Jackets</Text>
@@ -39,7 +40,7 @@ const DropDown = () => {
                     <Box>
                     <Text color={"#E72744"} fontWeight="semibold" mt={4}>Bottomwear</Text>
                     <Flex direction={"column"} gap = "2px">
-                        <Text mt={2}>Jeans</Text>
+                       <Link to = "/products?gender=Men&category=Jeans"><Text mt={2} fontWeight = "semibold" fontSize = "15px">Jeans</Text></Link> 
                         <Text>Casual Trousers</Text>
                         <Text>Formal Trousers</Text>
                         <Text>Shorts</Text>
@@ -66,7 +67,7 @@ const DropDown = () => {
                             <Text mt={2}>Casual Shoes</Text>
                             <Text>Sports Shoes</Text>
                             <Text>Formal Shoes</Text>
-                            <Text>Sneakers</Text>
+                           <Link to="/products?gender=Men&category=Shoes"><Text fontWeight={"semibold"} fontSize = "15px">Sneakers</Text></Link> 
                             <Text>Sandals</Text>
                             <Text>Floaters</Text>
                             <Text>Flip Flops</Text>
@@ -129,7 +130,7 @@ const DropDown = () => {
             </Box>
             
             <Box id='dropdown' pl={"15px"} pr = {"15px"}>
-            <Text fontWeight={"semibold"} fontSize = "15px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}>WOMEN</Text>
+            <Text fontWeight={"semibold"} fontSize = "15px" fontFamily={"sans-serif"} pt={"30px"} pb={"30px"}><Link to="/products?gender=Women">WOMAN</Link></Text>
             <Box id='content'>
                 <Flex gap={"90px"}>
                     <Box>
@@ -140,7 +141,7 @@ const DropDown = () => {
                             <Text>Sarees</Text>
                             <Text>Ethnic Wear</Text>
                             <Text>Leggings, Salwars & Chudidar</Text>
-                            <Text>Shirts & Plazzos</Text>
+                           <Link to="/products?gender=Women&category=shirt"><Text fontWeight={"semibold"} fontSize = "15px">Shirts & Plazzos</Text></Link> 
                             <Text>Dress Meterails</Text>
                             <Text>Lenga Chollis</Text>
                             <Text>Duplicates Shawles</Text>
@@ -158,7 +159,7 @@ const DropDown = () => {
                         <Text mt={2}>Dresses</Text>
                         <Text>Tops</Text>
                         <Text>Tshirts</Text>
-                        <Text>Jeans</Text>
+                        <Link to = "/products?gender=Women&category=Jeans"><Text fontWeight={"semibold"} fontSize = "15px">Jeans</Text></Link>
                         <Text>Trousers & Capris</Text>
                         <Text>Shorts & Skirts</Text>
                         <Text>Co-ords</Text>
@@ -180,7 +181,7 @@ const DropDown = () => {
                         <Flex direction={"column"} gap = "2px">
                             <Text mt={2}>Flat</Text>
                             <Text>Casual Shoes</Text>
-                            <Text>Formal Shoes</Text>
+                            <Link to="/products?gender=Women&category=Shoes"><Text fontWeight={"semibold"} fontSize = "15px">Formal Shoes</Text></Link>
                             <Text>Heels</Text>
                             <Text>Boots</Text>
                             <Text mb={4}>Sports Shoes & Floaters</Text>
