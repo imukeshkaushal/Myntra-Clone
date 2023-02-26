@@ -10,10 +10,12 @@ import {
   Input,
 
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import "../Components/dropdown.css"
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
 
 const Register = () => {
   const [first_name,setFirst_name]=useState("")
@@ -23,6 +25,7 @@ const Register = () => {
   const [password,setPassword]=useState("")
   const [age,setAge]=useState(23)
   const [city,setCity] = useState("");
+  const toast = useToast();
 
 
   const handleSubmit=()=>{
@@ -33,9 +36,37 @@ const Register = () => {
       axios.post(`https://calm-cyan-octopus-wear.cyclic.app/users/register`,payload)
         .then((res) =>{
           console.log(res);
+          toast({
+            position: "bottom-center",
+            render: () => (
+              <Flex
+                color="white"
+                p={"10px"}
+                bgColor="green.400"
+                borderRadius={"15px"}
+              >
+                <CheckCircleIcon w={30} h={30} />
+                <Text size="lg" ml="15px">
+                  You are Successfully Registered
+                </Text>
+              </Flex>
+            ),
+          });
         })
         .catch( (error) =>{
           console.log(error);
+          toast({
+            position: "bottom-center",
+    
+            render: () => (
+              <Flex color="white" borderRadius={"15px"} p={"10px"} bgColor="red" alignItems={"center"}>
+                <WarningIcon w={30} h={30} />
+                <Text size="lg" ml="15px">
+                  Ohh ! Sorry, You entered Wrong Email or Password. Please Enter Correct Details. Try Again Login!
+                </Text>
+              </Flex>
+            ),
+          });
         });
   }
 

@@ -4,17 +4,22 @@ export const AuthContext = createContext();
 
 
 function AuthContextProvider({children}) {
+    let token = localStorage.getItem("token") || "";
+    // console.log(token.length)
+    
+    
     const [authState,setState] = useState({
-        isAuth : false,
-        token : null
+        isAuth : token.length > 0,
+        token : null || token,
     })
+
 
     const loginUser = (token) => {
         setState({
-            
             isAuth : true,
             token : token
         });
+        localStorage.setItem("token",token)
     };
 
     const logoutUser = () => {
@@ -22,6 +27,7 @@ function AuthContextProvider({children}) {
             isAuth : false,
             token : null
         });
+        localStorage.removeItem("token")
     }
 
     return(
