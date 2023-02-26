@@ -4,9 +4,7 @@ import {
   Input,
   Button,
   FormLabel,
-  Grid,
   GridItem,
-  Image,
   Spacer,
   StackDivider,
   VStack,
@@ -21,42 +19,34 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  SimpleGrid,
+  SimpleGrid
 } from "@chakra-ui/react";
 
-import React, { useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { addCustomerData } from "../Redux/AppReducer/PaymentDetails/action";
-// import SinglePaymentCard from "../Components/Cart/SinglePaymentCard";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Checkout = () => {
-  //   const cart = useSelector((store) => store.cartReducer.cart);
-  //   const amount = useSelector((store) => store.cartReducer.totalCartAmount);
-  //   const items = useSelector((store) => store.cartReducer.totalItems);
-  //   const discount = useSelector((store) => store.cartReducer.discount);
-  //   const dispatch = useDispatch();
-
   const [paymentDetails, setPaymentDetails] = useState({
     fullName: "",
     address: "",
     city: "",
     cardNumber: "",
     expirationDate: "",
-    cvv: "",
+    cvv: ""
   });
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setPaymentDetails({
       ...paymentDetails,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     let newItem = {
-      ...paymentDetails,
+      ...paymentDetails
       //   orderAmount: amount - discount,
       //   numOfItems: items,
       //   cartDetails: cart,
@@ -66,14 +56,32 @@ const Checkout = () => {
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [data, setData] = useState([]);
+
+  const getProduct = () => {
+    axios
+      .get(`https://calm-cyan-octopus-wear.cyclic.app/carts`, {
+        headers: {
+          Authorization: localStorage.getItem("token")
+        }
+      })
+      .then(res => setData(res.data));
+  };
+
+  const Total = () => {
+    let sum = data ? data.reduce((sum, el) => (sum = el.productId.price * el.qty + sum), 0) : " ";
+    return sum;
+  };
+
+  let output = Total();
+
+  useEffect(() => {
+    getProduct();
+  }, []);
 
   return (
     <SimpleGrid w="100%" columns={{ base: 1, sm: 1, md: 1 }}>
-      <VStack
-        divider={<StackDivider borderColor="white" />}
-        spacing={10}
-        align="stretch"
-      >
+      <VStack divider={<StackDivider borderColor="white" />} spacing={10} align="stretch">
         {/* Form */}
         <Box border="1px" w="100%">
           <SimpleGrid
@@ -84,20 +92,10 @@ const Checkout = () => {
             columns={{ base: 1, sm: 1, md: 2 }}
             gap={6}
           >
-            <GridItem
-              w="100%"
-              border="1px solid"
-              borderColor="rgb(233,233,233)"
-              padding="1.2rem"
-            >
+            <GridItem w="100%" border="1px solid" borderColor="rgb(233,233,233)" padding="1.2rem">
               <form padding="4rem" onSubmit={handleSubmit}>
                 <FormControl width="70%" margin="auto">
-                  <FormLabel
-                    mt="15px"
-                    htmlFor="fullName"
-                    fontFamily={"sans-serif"}
-                    fontWeight="normal"
-                  >
+                  <FormLabel mt="15px" htmlFor="fullName" fontFamily={"sans-serif"} fontWeight="normal">
                     Full Name
                   </FormLabel>
                   <Input
@@ -195,7 +193,7 @@ const Checkout = () => {
                     onChange={handleChange}
                   />
                 </FormControl>
-                <Spacer></Spacer>
+                <Spacer />
                 <Flex margin="auto" w="70%" padding="0.5rem">
                   <Button
                     borderColor="rgb(150, 150, 150)"
@@ -213,12 +211,7 @@ const Checkout = () => {
                 </Flex>
               </form>
             </GridItem>
-            <GridItem
-              w="100%"
-              border="1px solid"
-              borderColor="rgb(233,233,233)"
-              padding="1.2rem"
-            >
+            <GridItem w="100%" border="1px solid" borderColor="rgb(233,233,233)" padding="1.2rem">
               {/* Order Details */}
               <Box w="100%" padding="0.5rem" borderColor="gray.200">
                 <Text w="100%" fontSize="18px" fontFamily="begummedium">
@@ -233,67 +226,42 @@ const Checkout = () => {
                   <Box w="100%">
                     <VStack>
                       <HStack w={{ sm: "300px", md: "495px" }}>
-                        <Text
-                          mt="10px"
-                          textAlign="left"
-                          fontWeight={"normal"}
-                          fontSize="16px"
-                          lineHeight="20px"
-                        >
+                        <Text mt="10px" textAlign="left" fontWeight={"normal"} fontSize="16px" lineHeight="20px">
                           SUBTOTAL
                         </Text>
-                        <Spacer></Spacer>
-                        <Text textAlign="right">₹{5000}</Text>
-                        {/* <Text textAlign="right">₹{amount}</Text> */}
+                        <Spacer />
+                        <Text textAlign="right">₹{output}</Text>
                       </HStack>
                     </VStack>
                     <VStack>
                       <HStack w={{ sm: "300px", md: "495px" }}>
-                        <Text
-                          textAlign="left"
-                          mt="10px"
-                          fontWeight={"normal"}
-                          fontSize="16px"
-                          lineHeight="20px"
-                        >
+                        {/* <Text textAlign="left" mt="10px" fontWeight={"normal"} fontSize="16px" lineHeight="20px">
                           CART DISCOUNT
                         </Text>
-                        <Spacer></Spacer>
-                        <Text textAlign="right">₹{-6000}</Text>
+                        <Spacer />
+                        <Text textAlign="right">₹{0}</Text> */}
                         {/* <Text textAlign="right">₹{discount}</Text> */}
                       </HStack>
                     </VStack>
                     <VStack>
                       <HStack w={{ sm: "300px", md: "495px" }}>
-                        <Text
-                          mt="10px"
-                          textAlign="left"
-                          fontWeight={"normal"}
-                          fontSize="16px"
-                          lineHeight="20px"
-                        >
+                        <Text mt="10px" textAlign="left" fontWeight={"normal"} fontSize="16px" lineHeight="20px">
                           SHIPPING CHARGES
                         </Text>
-                        <Spacer></Spacer>
-                        <Text textAlign="right">₹0</Text>
+                        <Spacer />
+                        <Text textAlign="right">₹FREE</Text>
                       </HStack>
                     </VStack>
                   </Box>
-                  <Spacer></Spacer>
+                  <Spacer />
                   <Box>
                     <HStack w={{ sm: "300px", md: "495px" }}>
-                      <Text
-                        mt="10px"
-                        textAlign="left"
-                        fontWeight={"normal"}
-                        fontSize="16px"
-                        lineHeight="20px"
-                      >
+                      <Text mt="10px" textAlign="left" fontWeight={"normal"} fontSize="16px" lineHeight="20px">
                         TOTAL COST
                       </Text>
-                      <Spacer></Spacer>
+                      <Spacer />
                       <Text textAlign="right" fontSize="16px" color={"#FF527B"}>
-                        ₹{5000 - 600}
+                        ₹{output}
                         {/* ₹{amount - discount} */}
                       </Text>
                     </HStack>
@@ -322,7 +290,7 @@ const Checkout = () => {
                     <Text as="cite">{paymentDetails.city}</Text>
                   </p>
                 </Box>
-                <Spacer></Spacer>
+                <Spacer />
                 <Box>
                   <p>Payment Details:</p>
                   <p>
@@ -336,11 +304,8 @@ const Checkout = () => {
                   </p>
                 </Box>
               </HStack>
-              <br></br>
-              <p>
-                Congratulations your order with order id #201216 is successfully
-                placed
-              </p>
+              <br />
+              <p>Congratulations your order with order id #201216 is successfully placed</p>
             </ModalBody>
             <ModalFooter>
               <Link to="/">
