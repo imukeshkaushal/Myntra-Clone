@@ -1,4 +1,5 @@
 import { Box,  Flex,Image, Text } from '@chakra-ui/react'
+import {Link} from "react-router-dom"
 import React from 'react'
 import "./dropdown.css"
 
@@ -17,7 +18,7 @@ const DropDown = () => {
                         <Flex direction={"column"} gap = "2px">
                             <Text mt={2}>T-Shirts</Text>
                             <Text>Casual Shirts</Text>
-                            <Text>Formal Shirt</Text>
+                           <Link to="/products?gender=Men&category=Shirts"><Text fontWeight={"semibold"} fontSize = "15px">Formal Shirt</Text></Link> 
                             <Text>Sweatshirts</Text>
                             <Text>Sweaters</Text>
                             <Text>Jackets</Text>
@@ -39,7 +40,7 @@ const DropDown = () => {
                     <Box>
                     <Text color={"#E72744"} fontWeight="semibold" mt={4}>Bottomwear</Text>
                     <Flex direction={"column"} gap = "2px">
-                        <Text mt={2}>Jeans</Text>
+                       <Link to = "/products?gender=Men&category=Jeans"><Text mt={2} fontWeight = "semibold" fontSize = "15px">Jeans</Text></Link> 
                         <Text>Casual Trousers</Text>
                         <Text>Formal Trousers</Text>
                         <Text>Shorts</Text>
@@ -66,7 +67,7 @@ const DropDown = () => {
                             <Text mt={2}>Casual Shoes</Text>
                             <Text>Sports Shoes</Text>
                             <Text>Formal Shoes</Text>
-                            <Text>Sneakers</Text>
+                           <Link to="/products?gender=Men&category=Shoes"><Text fontWeight={"semibold"} fontSize = "15px">Sneakers</Text></Link> 
                             <Text>Sandals</Text>
                             <Text>Floaters</Text>
                             <Text>Flip Flops</Text>

@@ -12,20 +12,13 @@ import { BsFillHandbagFill, BsTruck } from "react-icons/bs";
 import { BiPurchaseTag } from "react-icons/bi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { GoNote } from "react-icons/go";
-// import { useDispatch, useSelector } from "react-redux";
-
-// import { addToCart } from "../Redux/AppReducer/product/action";
 import { Input } from "@chakra-ui/react";
 import axios from "axios";
-// const navigate = Navigate();
+
 const SingleProduct = () => {
   const { id } = useParams();
-  console.log(id);
-  // console.log(products);
   const [product, setProduct] = useState({});
   const [size, setSize] = useState("6");
-  // const dispatch = useDispatch();
-
   const getProduct = () => {
     axios.get(`https://calm-cyan-octopus-wear.cyclic.app/products/${id}`).then(res => setProduct(res.data[0]));
   };
@@ -66,7 +59,11 @@ const SingleProduct = () => {
   };
   return (
     <div>
-      <VStack divider={<StackDivider borderColor="white" />} spacing={14} align="stretch">
+      <VStack
+        divider={<StackDivider borderColor="white" />}
+        spacing={14}
+        align="stretch"
+      >
         <Container padding="8" maxW="100%" bg="#FFFF">
           <SimpleGrid columns={{ base: 1, sm: 1, md: 2 }} spacing={"20px"}>
             <SimpleGrid columns={{ base: 2, sm: 2, md: 2 }} spacing="10px" h={"800px"}>
@@ -76,11 +73,6 @@ const SingleProduct = () => {
               <Image src={product.imageSrc} alt={product.brand} />
             </SimpleGrid>
             <Box ml={"30px"}>
-              {/* <VStack
-                  divider={<StackDivider borderColor="gray.200" />}
-                  spacing={2}
-                  align="stretch"
-                > */}
               <Box mt="20px">
                 <Flex>
                   <Box>
@@ -365,13 +357,11 @@ const SingleProduct = () => {
                 <Text fontWeight={"bold"}>Material & Care:</Text>
 
                 <Text>Synthetic</Text>
-
                 <Text>Wipe with a clean dry cloth</Text>
               </Box>
             </Box>
           </SimpleGrid>
         </Container>
-        {/* <Footer></Footer> */}
       </VStack>
     </div>
   );

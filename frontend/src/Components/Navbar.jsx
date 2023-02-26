@@ -21,6 +21,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { authState, logoutUser } = useContext(AuthContext);
+  let name = localStorage.getItem("name");
   return (
     <Box
       backgroundColor="white"
@@ -82,9 +83,15 @@ const Navbar = () => {
               Profile
             </Text>
             <Box id="dropdown_content_profile">
+              {
+                authState.isAuth ? <Text fontWeight={"semibold"} mt={4} fontSize = {"18px"}>
+                Welcome {name}
+              </Text> :
               <Text fontWeight={"semibold"} mt={4}>
                 Welcome
               </Text>
+              }
+              
               <Text>To access account and manage or...</Text>
               <button className="account_login" >
               {
