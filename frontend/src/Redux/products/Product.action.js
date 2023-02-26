@@ -23,7 +23,6 @@ const getProductFailureAction=()=>{
 export const getProduct =(paramObj)=> (dispatch)=>{
     dispatch(getProductRequestAction())
       axios.get("https://calm-cyan-octopus-wear.cyclic.app/products",paramObj)
-    // axios.get("http://localhost:7500/products",paramObj)
       .then((res)=>dispatch(getProductSuccessAction(res.data)))
       .catch((err)=>dispatch(getProductFailureAction()))
 }
