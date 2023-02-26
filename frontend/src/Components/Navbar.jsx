@@ -23,7 +23,7 @@ import axios from "axios";
 const Navbar = () => {
   const { authState, logoutUser } = useContext(AuthContext);
   const [updated, setUpdated] = useState("");
-  const [data,setData] = useState("");
+  const [data,setData] = useState([]);
   const [message, setMessage] = useState('');
   const navigate = useNavigate()
   let name = localStorage.getItem("name") || "";
@@ -48,6 +48,7 @@ const Navbar = () => {
       .then(res => setData(res.data));
   };
 
+  console.log(data);
   useEffect(() => {
     getProduct();
   },[])
@@ -177,7 +178,9 @@ const Navbar = () => {
             gap={"5px"}
           >
             <div className="cart">
-              <span className="count">{data.length}</span>
+              {
+                data.length > 0 ? <span className="count">{data.length}</span> : <span className="count">0</span>
+              }
               <Box id="cart-icon">
                 <HiOutlineShoppingBag size={"25px"} />
               </Box>

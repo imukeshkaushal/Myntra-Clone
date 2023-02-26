@@ -13,7 +13,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import "../Components/dropdown.css"
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
 
@@ -25,6 +25,7 @@ const Register = () => {
   const [password,setPassword]=useState("")
   const [age,setAge]=useState(23)
   const [city,setCity] = useState("");
+  const navigate = useNavigate();
   const toast = useToast();
 
 
@@ -52,6 +53,7 @@ const Register = () => {
               </Flex>
             ),
           });
+          navigate("/login")
         })
         .catch( (error) =>{
           console.log(error);
