@@ -1,38 +1,13 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardBody,
-  Flex,
-  HStack,
-  Stack,
-  Image,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  SimpleGrid,
-  Text,
-  useDisclosure,
-  VStack,
-  Spacer,
-  Input
-} from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, Flex, HStack, Stack, Image, SimpleGrid, Text, VStack, Spacer } from "@chakra-ui/react";
 import axios from "axios";
-
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import React, { useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [data, setData] = useState("");
   console.log(data);
-  const [coupon, setCoupon] = useState("");
+
   const [delivery, setDelivery] = useState("");
 
   const getProduct = () => {
@@ -49,40 +24,47 @@ const Cart = () => {
     let sum = data ? data.reduce((sum, el) => (sum = el.productId.price * el.qty + sum), 0) : " ";
     return sum;
   };
-  const PlusQuant = _id => {
-    setData(data.map(el => (el._id === _id ? { ...el, qty: el.qty + 1 } : el)));
-  };
-  const MinusQuant = _id => {
-    setData(data.map(el => (el._id === _id ? { ...el, qty: el.qty - 1 } : el)));
-  };
 
-  //   const removeItem = productId => {
-  //     axios
-  //       .delete(`https://calm-cyan-octopus-wear.cyclic.app/carts/${productId}`, {
-  //         headers: {
-  //           Authorization: localStorage.getItem("token")
-  //         }
-  //       })
-  //       .then(res => {
-  //         // handle success response
-  //         console.log(res);
-  //       })
-  //       .catch(err => {
-  //         // handle error response
-  //         console.log(err);
-  //       });
+  async function updateQty(_id, payload) {
+    let data = {
+      qty: payload
+    };
+    await fetch(`https://calm-cyan-octopus-wear.cyclic.app/carts/update/${_id}`, {
+      method: "PATCH",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json",
+        Authorization: localStorage.getItem("token")
+      }
+    });
+    getProduct();
+  }
+
+  async function removeItem(_id) {
+    await fetch(`https://calm-cyan-octopus-wear.cyclic.app/carts/delete/${_id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: localStorage.getItem("token")
+      }
+    });
+    getProduct();
+  }
+
+  function PlusQuant(_id, qty) {
+    // setData(data.map(el => (el._id === _id ? { ...el, qty: el.qty + 1 } : el)));
+    const payload = qty + 1;
+    updateQty(_id, payload);
+  }
+  function MinusQuant(_id, qty) {
+    // setData(data.map(el => (el._id === _id ? { ...el, qty: el.qty + 1 } : el)));
+    const payload = qty - 1;
+    updateQty(_id, payload);
+  }
+  //   const MinusQuant = _id => {
+  //     // setData(data.map(el => (el._id === _id ? { ...el, qty: el.qty - 1 } : el)));
+  //     const payload = -1;
+  //     updateQty(_id, payload);
   //   };
-
-  //   let couponDis = 0;
-  //   const handleCouponCode = () => {
-  //     if (coupon === "masai") {
-  //       couponDis = Total() - 200;
-  //     } else {
-  //       couponDis = Total() - 0;
-  //     }
-  //   };
-
-  const totalMRP = Total() - 300;
 
   useEffect(() => {
     getProduct();
@@ -113,57 +95,9 @@ const Cart = () => {
                 <Box>
                   <Flex borderRight="1px solid" borderRightColor="rgb(233, 233, 233)">
                     <SimpleGrid w="95%">
-                      <SimpleGrid
-                        border="1px solid"
-                        borderColor="#D9E1EA"
-                        bg="white"
-                        borderRadius="5px"
-                        borderLeft="5px solid"
-                        borderLeftColor="rgb(136, 99, 251)"
-                        padding="0.5rem"
-                      >
-                        <HStack spacing="10px" w="100%" padding="0.1rem">
-                          <Flex w="85%" margin="auto" borderRight="1px solid" borderColor="#D9E1EA">
-                            <Card>
-                              <CardBody>
-                                <Text
-                                  textAlign="left"
-                                  fontFamily="BegumSemiBold,Arial, sans-serif"
-                                  fontSize="1.2rem"
-                                  lineHeight="1rem"
-                                  color="rgb(136, 99, 251)"
-                                >
-                                  Get ₹ 1844 xCLusive points on this order.
-                                </Text>
-                                <Text
-                                  textAlign="left"
-                                  fontFamily="MuliRegular,Helvetica, Arial, sans-serif"
-                                  fontSize="1rem"
-                                  lineHeight="1rem"
-                                  color="rgb(35, 21, 53)"
-                                >
-                                  You can redeem these points on your next order
-                                </Text>
-                                <Text
-                                  textAlign="left"
-                                  fontFamily="MuliRegular,Helvetica, Arial, sans-serif"
-                                  fontSize="1rem"
-                                  lineHeight="1rem"
-                                  color="rgb(35, 21, 53)"
-                                >
-                                  {/* ( 1 Point = 1 rupee ) <a>Know More</a> */}{" "}
-                                </Text>
-                              </CardBody>
-                            </Card>
-                          </Flex>
-                          <Flex w="15%" margin="auto">
-                            <Image src="https://www.shutterstock.com/image-vector/rupee-line-icon-simple-outline-260nw-1927650245.jpg" />
-                          </Flex>
-                        </HStack>
-                      </SimpleGrid>
                       <Flex w="100%">
                         <Text w="75%" mt="10px" fontFamily="MuliSemiBold,Helvetica, Arial, sans-serif" fontSize="1.1rem">
-                          Total Items {data.length} : ₹{totalMRP}{" "}
+                          Total Items {data.length} : ₹{Total()}{" "}
                         </Text>
                         <Text
                           w="25%"
@@ -223,7 +157,7 @@ const Cart = () => {
                                                 size={"sm"}
                                                 variant="outline"
                                                 fontSize={"10px"}
-                                                onClick={() => PlusQuant(el._id)}
+                                                onClick={() => PlusQuant(el._id, el.qty)}
                                               >
                                                 {" "}
                                                 <AddIcon />
@@ -234,7 +168,7 @@ const Cart = () => {
                                                 variant="outline"
                                                 fontSize={"10px"}
                                                 isDisabled={el.qty === 1}
-                                                onClick={() => MinusQuant(el._id)}
+                                                onClick={() => MinusQuant(el._id, el.qty)}
                                               >
                                                 <MinusIcon />
                                               </Button>
@@ -292,7 +226,7 @@ const Cart = () => {
                                             md: "100%"
                                           }}
                                           borderRadius="0.2rem"
-                                          //   onClick={removeItem}
+                                          onClick={() => removeItem(el._id)}
                                         >
                                           Remove
                                         </Button>
@@ -333,20 +267,6 @@ const Cart = () => {
               </Box>
               <Box w="70%" ml={"50px"}>
                 <Box>
-                  <Box>
-                    <Button
-                      onClick={onOpen}
-                      borderColor="#E39D67"
-                      w="100%"
-                      h="auto"
-                      bg="#E93D67"
-                      _hover={{ bg: "#E93D67" }}
-                      borderRadius="0.5rem"
-                      padding="0.5rem"
-                    >
-                      Apply Coupan
-                    </Button>
-                  </Box>
                   <Box borderColor="#D9E1EA" w="100%" h="auto" bg="white">
                     <HStack w="100%" mt="10px">
                       <Image
@@ -376,24 +296,6 @@ const Cart = () => {
                     </HStack>
                     <HStack w="100%">
                       <Text mt="10px" textAlign="left" fontWeight={"normal"} fontSize="16px" lineHeight="20px">
-                        Discount on MRP
-                      </Text>
-                      <Spacer />
-                      <Text padding="0.2rem" textAlign="right">
-                        ₹{100}{" "}
-                      </Text>
-                    </HStack>
-                    <HStack w="100%">
-                      <Text mt="10px" textAlign="left" fontWeight={"normal"} fontSize="16px" lineHeight="20px">
-                        Coupon Discount
-                      </Text>
-                      <Spacer />
-                      <Text padding="0.2rem" textAlign="right">
-                        ₹{200}{" "}
-                      </Text>
-                    </HStack>
-                    <HStack w="100%">
-                      <Text mt="10px" textAlign="left" fontWeight={"normal"} fontSize="16px" lineHeight="20px">
                         Convenience Fee
                       </Text>
                       <Spacer />
@@ -415,7 +317,7 @@ const Cart = () => {
                       </Text>
                       <Spacer />
                       <Text padding="0.2rem" fontSize="1.2rem" textAlign="right" as="b">
-                        ₹{totalMRP}{" "}
+                        ₹{Total()}{" "}
                       </Text>
                     </HStack>
                   </Box>
@@ -439,23 +341,7 @@ const Cart = () => {
             </SimpleGrid>
           </HStack>
         </Box>
-        <Box>
-          {" "}
-          <Modal onClose={onClose} isOpen={isOpen} isCentered>
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader>Enter Coupon Code</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-                <Input placeholder="Enter Coupon Code" value={coupon} onChange={e => setCoupon(e.target.value)} />
-                <Button>Apply</Button>{" "}
-              </ModalBody>
-              <ModalFooter>
-                <Button onClick={onClose}>Close</Button>
-              </ModalFooter>
-            </ModalContent>
-          </Modal>
-        </Box>
+        <Box />
       </Box>
       <br />
     </Box>

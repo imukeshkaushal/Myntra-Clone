@@ -91,7 +91,6 @@ const Navbar = () => {
                 Welcome
               </Text>
               }
-              
               <Text>To access account and manage or...</Text>
               <button className="account_login" >
               {
