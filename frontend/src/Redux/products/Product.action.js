@@ -22,7 +22,7 @@ const getProductFailureAction=()=>{
 
 export const getProduct =(paramObj)=> (dispatch)=>{
     dispatch(getProductRequestAction())
-      axios.get("http://localhost:7500/products",paramObj)
+      axios.get("https://periwinkle-centipede-garb.cyclic.app/products",paramObj)
       .then((res)=>dispatch(getProductSuccessAction(res.data)))
       .catch((err)=>dispatch(getProductFailureAction()))
 }
