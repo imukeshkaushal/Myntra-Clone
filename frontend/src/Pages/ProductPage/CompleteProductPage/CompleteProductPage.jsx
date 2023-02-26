@@ -1,3 +1,4 @@
+import { Button } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom';
 
@@ -14,6 +15,10 @@ export default function CompleteProductPage() {
 const [rating,setRating]=useState(initialState4 || Array[1]);
 const [pHL,setPHL]=useState(initialState5 || Array[1]);
 const [pLH,setPLH]=useState(initialState6 || Array[1]);
+  
+const  gender  =  searchParams.getAll("gender");
+const category  =  searchParams.getAll("category");
+const brand= searchParams.getAll("brand");
 
 
 const changeHandler=(e)=>{
@@ -54,10 +59,22 @@ const changeHandler=(e)=>{
     setPLH(npLH)
   }
 }
+// const clearHandler=()=>{
+// category.length=0;
+// brand.length=0;
+// gender.length=0
+// const params={category,brand,gender}
+// setSearchParams(params)
+// }
+
+
+
+
+
 
 useEffect(()=>{
   const params={
-    rating,pHL,pLH }
+    rating,pHL,pLH,gender,brand,category }
   setSearchParams(params)
 },[rating,pHL,pLH])
 
@@ -66,8 +83,10 @@ useEffect(()=>{
     <div >
       <div className='compmaindiv'>
               <span className='compfilter'>FILTERS</span>
-             
+{/* {(gender.length!=0 && category.length!=0 || brand.length!=0)?<button onClick={clearHandler}>CLEAR ALL</button>:""} */}
+
        <div className='compdiv'>
+        
         <div>
         <span>Sort by:</span></div>
         <div>
