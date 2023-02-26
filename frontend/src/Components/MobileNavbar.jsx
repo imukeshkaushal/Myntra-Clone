@@ -21,7 +21,8 @@ const MobileNavbar = ({count}) => {
       <Flex gap={"20px"} alignItems = "center">
         <BsFilePlus size={"20px"}/>
         <SearchIcon boxSize={"20px"}/>
-        <BsHeart size={"20px"}/>
+        <Link to="/wishlist"> <BsHeart size={"20px"}/></Link>
+       
         <Link to="/cart">
         <div className="cart">
           <span className="count">{count}</span> 

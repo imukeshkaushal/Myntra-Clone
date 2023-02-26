@@ -156,7 +156,8 @@ const Navbar = () => {
               </Box>
             </Box>
           </Box>
-
+          
+          <Link to="/wishlist">
           <Box
             display={"flex"}
             flexDirection="column"
@@ -169,6 +170,7 @@ const Navbar = () => {
               Wishlist
             </Text>
           </Box>
+          </Link>
         <Link to="/cart">
           <Box
             display={"flex"}
