@@ -6,6 +6,13 @@ import "./Wishlist.css";
 export default function Wishlist() {
 const [data,setData] = useState([])
 
+
+const abc=(id1,id2)=>{
+  movetoBag(id1);
+           deleteWish(id2);
+}
+
+
 const getwish = ()=>{
 
         axios.get("https://calm-cyan-octopus-wear.cyclic.app/wishlist", {
@@ -45,24 +52,23 @@ getwish()
 
   return (
     <div>
+      <h1 className='wishtop'>My Wishlist {data.length} items</h1>
         <div className='wishmain'>
      {data.length>0 && data.map((el)=>{
-        return  <div key={el.productId._id}>
+        return  <div key={el.productId._id} className="wishmap">
+          <button onClick={()=>deleteWish(el._id)} className='wishfirstbtn'>X</button>
+         <div className='wishaboveimg'>
          <img src={el.productId.imageSrc} alt="" />
          <div className='wishlistlbimg'>
           <div className='wishlistrate'>
          <span className='wishlisttetext'>{el.productId.rating}</span>
          <span><AiFillStar className='wishlisticon' /></span></div>
          <br /> 
-         <div className='wishbelow'>
          <h4 className='wishlistbrand'>{el.productId.brand}</h4>
          <h4 className='wishlistdesc'>{el.productId.description}</h4>
          <span className='wishlistprice'>Rs.{el.productId.price}</span></div>
-         <button   onClick={() => {
-          movetoBag(el.productId._id);
-           deleteWish(el._id); }} className='wishbtn'>Move to Bag</button></div>
-         </div>
-     })}</div>
+         <button   onClick={() => abc(el.productId._id,el._id)} className='wishbtn'>Move to Bag</button></div>
+         </div>})}</div>
     </div>
   )
 }

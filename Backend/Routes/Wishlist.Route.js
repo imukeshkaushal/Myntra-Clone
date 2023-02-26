@@ -41,11 +41,11 @@ wishlistRoute.post('/add',authenticate, async (req, res) => {
 
 wishlistRoute.delete('/delete/:id',authenticate, async (req, res) => {
 
-    const  productId = req.params.id;
+    const  _id = req.params.id;
 
     try {
-       await WishlistModel.findOneAndDelete({productId});
-        res.send({msg:`Product with id:${productId} has been deleted`})
+       await WishlistModel.findOneAndDelete({_id});
+        res.send({msg:`Product with id:${_id} has been deleted`})
         
     } catch (e) {
         return res.status(400).send(e.message)

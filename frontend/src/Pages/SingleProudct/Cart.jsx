@@ -96,7 +96,7 @@ const Cart = () => {
                   <Flex borderRight="1px solid" borderRightColor="rgb(233, 233, 233)">
                     <SimpleGrid w="95%">
                       <Flex w="100%">
-                        <Text w="75%" mt="10px" fontFamily="MuliSemiBold,Helvetica, Arial, sans-serif" fontSize="1.1rem">
+                        <Text w="75%" mt="10px" fontFamily="MuliSemiBold,Helvetica, Arial, sans-serif" fontSize="1.5rem" fontWeight="700">
                           Total Items {data.length} : ₹{Total()}{" "}
                         </Text>
                         <Text
