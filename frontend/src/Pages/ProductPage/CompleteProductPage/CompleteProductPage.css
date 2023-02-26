@@ -28,6 +28,8 @@
     border: none;
     width: 180px;
     font-weight: 700;
+    color: black;
+    outline: none;
 }
 
 .compdiv{
@@ -46,7 +48,8 @@ border: 1px solid rgb(197, 196, 196);
 .compopt{
     border: none;
     width: auto;
-
+outline: none;
+background-color: white;
 }
 
 .compfilter{
@@ -62,4 +65,45 @@ border: 1px solid rgb(197, 196, 196);
    display: flex;
    justify-content: space-between;
 
+}
+
+@media(max-width:865px){
+    .compMain{
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgb(227, 227, 227);
+    flex-direction: column;
+    }
+    .prodcomp{
+        border: none;
+    }
+.sidecomp{
+    width: 98%;
+
+}
+}
+@media(max-width:470px){
+    .compMain{
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgb(227, 227, 227);
+    flex-direction: column;
+    }
+    .prodcomp{
+        border: none;
+    }
+.sidecomp{
+    width: 98%;
+
+}
+.compdiv{
+    width: 210px;
+}
+.compselect{
+    width: 140px;
+}
 }

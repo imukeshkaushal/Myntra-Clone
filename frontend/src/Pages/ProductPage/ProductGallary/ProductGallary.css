@@ -81,8 +81,10 @@ font-weight: 700;
     .pgallarymain{
         display: grid;
         grid-template-columns: repeat(1,1fr);
-        justify-content: space-around;
-        gap: 25px;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+
     }
 }
 
