@@ -12,13 +12,14 @@ import "../Components/dropdown.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthContext";
+import { useLocation } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { loginUser, authState } = useContext(AuthContext);
+  const { loginUser} = useContext(AuthContext);
   const navigate = useNavigate();
-
+  const { state } = useLocation();
   const handleSubmit = () => {
     const payload = {
       email,
@@ -26,7 +27,7 @@ const Login = () => {
     };
     console.log(payload);
 
-    fetch("https://calm-cyan-octopus-wear.cyclic.app//users/login", {
+    fetch("https://calm-cyan-octopus-wear.cyclic.app/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,10 +38,14 @@ const Login = () => {
     .then((res) => {
       if(res.token){
         loginUser(res.token);
-        localStorage.setItem("token",res.token);
+        localStorage.setItem("name",res.user[0].first_name,)
         console.log(res.token)
+        if (state.from) {
+          navigate(state.from, { replace: true });
+        } else {
+          navigate("/");
+        }
         
-        navigate("/")
       }
     })
     .catch((error) => {

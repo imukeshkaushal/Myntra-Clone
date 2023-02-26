@@ -9,13 +9,14 @@ import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import PrivateRoute from '../Context/PrivateRoute';
 
+
 const AllRoutes = () => {
   return (
     <Routes>
         <Route path='/' element = {<Home/>}></Route>
         <Route path='/products' element={<CompleteProductPage/>} ></Route>
         <Route path="/cart" element={<Cart />} />;
-        <Route path="/SingleProduct/:id" element={<SingleProduct />} />
+        <Route path="/SingleProduct/:id" element={<PrivateRoute><SingleProduct /></PrivateRoute>} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path='/login' element = {<Login/>}></Route>
         <Route path='/register' element = {<Register/>}></Route>
