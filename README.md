@@ -11,6 +11,16 @@
 
 <h1>Features :</h1> <h3>Home Page,Login/Signup Page, Products Page, SingleProducts Page,Wishlist Page, Cart Page,Checkout Page  we added  to our website</h3>
 
+<h1>Backend Deployment Link </h1>
+
+https://calm-cyan-octopus-wear.cyclic.app
+
+
+<h1>Frontend Deployment Link </h1>
+
+https://friendly-sorbet-912886.netlify.app/
+
+
 <h1>Logo</h1>
 
 ![sss](https://user-images.githubusercontent.com/110049484/221616098-49dc4b14-adb3-4276-a83a-435be3fdb5e9.png)
