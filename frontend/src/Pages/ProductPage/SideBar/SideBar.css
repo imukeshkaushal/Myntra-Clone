@@ -1,0 +1,111 @@
+.check1{
+    border-bottom: 1px solid rgb(227, 227, 227);
+    padding-bottom: 20px;
+    font-size: 14px;
+    font-weight: 700;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   color: black;
+}
+
+.sidehead{
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+    /* padding-left: 10px; */
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.sidemain input{
+    accent-color:#FF3F6C;
+    align-items: center;
+    color: gray;
+}
+.sidemain{
+
+    font-size: 14px;
+    color: rgb(105, 105, 105);
+}
+.sidemain input[type='radio']{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+.sidemain input[type='checkbox']{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+
+}
+.check2{
+    border-bottom: 1px solid rgb(227, 227, 227);
+    padding-bottom: 20px;
+
+}
+
+
+@media(max-width:865px){
+    .sidemain{
+        display: flex;
+        flex-direction: column;
+    }
+    .check1 div{
+        display: flex;
+        align-items: center;
+    }
+    .check1{
+        display: flex;
+        flex-direction: row;
+    }
+    .check2{
+        display: flex;
+        gap: 17px;
+        align-items: center;
+    }
+    .check2 div{
+        display: flex;
+        align-items: center;
+    }
+    .check3{
+        display: flex;
+        gap: 17px;
+        align-items: center;
+    }
+    .check3 div{
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        gap: 6px
+    }
+    .check3 div input[type='checkbox']{
+        width: 14px;
+        height: 14px;
+        margin-right: 5px;
+    
+    }
+}
+
+/* @media(max-width:470px){
+    .check3{
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+    .check3 div{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        font-size: 15px;
+        gap: 10px;
+        text-align: center;
+        
+    }
+    .check3 div input[type='checkbox']{
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+    
+    }
+    
+} */

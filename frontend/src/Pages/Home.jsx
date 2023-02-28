@@ -2,7 +2,7 @@ import { Box,Image, Text } from '@chakra-ui/react'
 import React from 'react'
 import Carousal from '../Components/Slider'
 import { bagImages, brandPriceImages, brandsImages, dealImages, dealTopImages, topImages, bestBuyImages, myntraImages, giftCards, giftCardImages, styleImages, tendHerImages, tendHimImages, kidsStarImages, newTopImages, imageStock, beautyImages, seasonImages, colorSeason, topStyleImages, loveImages, trendingImages } from '../Components/images'
-import Footer from '../Components/Footer'
+
 
 const Home = () => {
   return (
@@ -281,7 +281,7 @@ const Home = () => {
       }
       </Box>
 
-      <Footer/>
+      
     </Box>
   )
 }

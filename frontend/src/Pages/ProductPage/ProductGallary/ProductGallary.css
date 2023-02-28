@@ -11,7 +11,13 @@
     z-index: -1;
     
 }
-
+/* .protop{
+    font-size: 20px;
+    font-weight: 700;
+    margin-left:5%;
+    margin-top: -100px;
+    margin-bottom: 50px;
+} */
 .pgalbrand{
     font-weight: 700;
 }
@@ -40,7 +46,7 @@
     color: #72BFBC;
 }
 .pgratetext{
-font-size: 12px;
+font-size: 11px;
 font-weight: 700;
 }
 
@@ -48,3 +54,46 @@ font-weight: 700;
     font-size: 14px;
     color: gray;
 }
+
+
+@media(max-width:1380px){
+    .pgallarymain{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        justify-content: space-around;
+        gap: 25px;
+    }
+}
+
+@media(max-width:1150px){
+    .pgallarymain{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        justify-content: space-around;
+        gap: 25px;
+    }
+}
+
+@media(max-width:700px){
+    .pgallarymain{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: space-around;
+        gap: 25px;
+    }
+}
+
+@media(max-width:450px){
+    .pgallarymain{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+
+    }
+}
+
+
+
+

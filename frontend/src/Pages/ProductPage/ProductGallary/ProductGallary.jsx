@@ -32,7 +32,8 @@ const [searchParams] = useSearchParams()
   return (
     <div>
        
-        
+     {/* <h1 className='protop'>{product.length} items</h1> */}
+
     <div className='pgallarymain'>
      {product.length>0 && product.map((el)=>{
         return  <Link to={`/SingleProduct/${el._id}`}><div key={el._id}>

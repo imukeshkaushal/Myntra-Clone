@@ -116,10 +116,11 @@ useEffect(()=>{
     </div>
 
 
-
+<div className='check3'>
     <h1 className='sidehead' >BRAND</h1>
 
-    
+    {(category.includes("Shoes"))?
+    <div>
     <div>
 <input type="checkbox"  value="Puma" onChange={handleCheck3}  checked={brand.includes("Puma")}/>
     <label htmlFor="">Puma</label></div>
@@ -130,10 +131,10 @@ useEffect(()=>{
 
     <div>
 <input type="checkbox" value="Nike" onChange={handleCheck3}   checked={brand.includes("Nike")}/>
-    <label htmlFor="">Nike</label></div>
+    <label htmlFor="">Nike</label></div></div>:""
+}
 
-
-
+{(category.includes("Shirts"))?<div>
     <div>
 <input type="checkbox"  value="Van Heusen" onChange={handleCheck3}  checked={brand.includes("Van Heusen")}/>
     <label htmlFor="">Van Heusen</label></div>
@@ -144,9 +145,10 @@ useEffect(()=>{
 
     <div>
 <input type="checkbox" value="Hancock" onChange={handleCheck3}  checked={brand.includes("Hancock")} />
-    <label htmlFor="">Hancock</label></div>
+    <label htmlFor="">Hancock</label></div></div>:""}
 
 
+{(category.includes("Jeans"))?<div>
     <div>
 <input type="checkbox"  value="Pepe Jeans" onChange={handleCheck3} checked={brand.includes("Pepe Jeans")} />
     <label htmlFor="">Pepe Jeans</label></div>
@@ -164,10 +166,10 @@ useEffect(()=>{
     <label htmlFor="">Louis Philippe</label></div>
     <div>
     <input type="checkbox" value="Levis Jeans" onChange={handleCheck3}  checked={brand.includes("Levis Jeans")} />
-    <label htmlFor="">Levis Jeans</label></div>
+    <label htmlFor="">Levis Jeans</label></div></div>:"" }
 
 
-
+    </div>
 
 
 

@@ -1,3 +1,7 @@
+body{
+    background-color: #FAFBFC;
+}
+
 #content{
     height: auto;
     margin: auto;
@@ -28,7 +32,7 @@
     height: auto;
     margin: auto;
     position: absolute;
-    top : 80px;
+    top : 85px;
     left: 400px;
     width : 600px;
     padding-left: 40px;
