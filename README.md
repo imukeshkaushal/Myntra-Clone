@@ -1,4 +1,4 @@
-<h1>Syntra.com clone by Myntra</h1>
+<h1>Syntra clone of Myntra.com</h1>
 
 <h1>About</h1>
 
