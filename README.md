@@ -5,9 +5,9 @@
 <h3>Syntra is a major Indian Fashion e-Commerce Company. Syntra launched an express delivery service on its app to offer one of a kind of experience by fashion & beauty platform. This service allow shoppers to receive their orders for products.</h3>
 
 
-<h1>Tech Stack For Frontend :</h1> <h3>React, Redux, Axios, Chakra UI,</h3>
+<h1>Tech Stack For Frontend :</h1> <h3>React, Redux, Axios, Chakra UI</h3>
 
-<h1>Tech Stack For Backend :</h1> <h3>NodeJs, Mongoose, Express,</h3>
+<h1>Tech Stack For Backend :</h1> <h3>NodeJs, Mongoose, Express, Cors, Jwt , Bycrpt</h3>
 
 <h1>Features :</h1> <h3>Home Page,Login/Signup Page, Products Page, SingleProducts Page,Wishlist Page, Cart Page,Checkout Page  we added  to our website</h3>
 
