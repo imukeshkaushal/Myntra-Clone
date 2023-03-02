@@ -7,7 +7,7 @@
 
 <h1>Tech Stack For Frontend :</h1> <h3>React, Redux, Axios, Chakra UI</h3>
 
-<h1>Tech Stack For Backend :</h1> <h3>NodeJs, Mongoose, Express, Cors, Jwt , Bycrpt</h3>
+<h1>Tech Stack For Backend :</h1> <h3>NodeJs, Mongoose, Express, Cors, Jwt , Bcrypt</h3>
 
 <h1>Features :</h1> <h3>Home Page,Login/Signup Page, Products Page, SingleProducts Page,Wishlist Page, Cart Page,Checkout Page  we added  to our website</h3>
 
